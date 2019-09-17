@@ -19,10 +19,12 @@ I used vote share margins between Republican and Democratic presidential candida
 The country has never been as polarized in its modern history as it is today. It is said that in the past presidential elections there were much more competitive counties where the margins between democratic and republican candidates. Following maps depict the trend in the past five presidential elections, and you can find more white counties where the margins were narrow in 2000 than 2016. Some obvious shifts over time include deepening red color in the Midwest and the opposite in coastal California.
 
 ![US presidential elections 2000-2016](images//historical_map.png "US presidential election historical map")
+
 *Darker colors indicate wider margins (blue: Democrats, red: Republican)*
 
 
 ![US presidential elections 2000-2016: margins](images//historical_margin_boxplot.png "US presidential election historical margin distribution")
+
 *Voting share margin between Republican and Democratic candidates*
 
 The margins of voting shares of candidates of the Republican and Democratic parties have widened in many counties. The standard deviation of margins has been constantly increasing over past years: 0.26 in 2000, 0.29 in 2008, and 0.35 in 2016. During this time, distribution tails, i.e. non-competitive counties, have substantially increased.
