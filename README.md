@@ -8,24 +8,29 @@ Keita Miyaki
 
 ## Datasets
 - US Census: American Community Survey 5-Year Data
--- I used "Data Profile" table which offers more than 1,000 variables about broad social, economic, housing, and demographic information. 
+
+I used "Data Profile" table which offers more than 1,000 variables about broad social, economic, housing, and demographic information. 
 - MIT Election Data and Science Lab: "County Presidential Election Returns 2000-2016"
--- I used vote share margins between Republican and Democratic presidential candidates at county-level
 
+I used vote share margins between Republican and Democratic presidential candidates at county-level
 
+## Summary of Analysis
 
 The country has never been as polarized in its modern history as it is today. It is said that in the past presidential elections there were much more competitive counties where the margins between democratic and republican candidates. Following maps depict the trend in the past five presidential elections, and you can find more white counties where the margins were narrow in 2000 than 2016. Some obvious shifts over time include deepening red color in the Midwest and the opposite in coastal California.
 
 ![US presidential elections 2000-2016](images//historical_map.png "US presidential election historical map")
-Darker colors indicate wider margins (blue: Democrats, red: Republican)
+*Darker colors indicate wider margins (blue: Democrats, red: Republican)*
 
 
 ![US presidential elections 2000-2016: margins](images//historical_margin_boxplot.png "US presidential election historical margin distribution")
-Voting share margin between Republican and Democratic candidates
+*Voting share margin between Republican and Democratic candidates*
 
 The margins of voting shares of candidates of the Republican and Democratic parties have widened in many counties. The standard deviation of margins has been constantly increasing over past years: 0.26 in 2000, 0.29 in 2008, and 0.35 in 2016. During this time, distribution tails, i.e. non-competitive counties, have substantially increased.
-In my previous article, I found that population and social profile data had a strong power to tell the 2016 presidential election results at county level. The question posited in this article is whether or not changes in population have contributed to the polarization in US politics. For instance, if cities had inflows of people whose values are aligned with the Democratic Party, they might become bluer. At the same time, if people with affinity for the Republican Party remain in the countryside, those counties would turn redder.
+
+In [my previous analysis](https://github.com/keita-dc/FlatironProject5), I found that population and social profile data had a strong power to tell the 2016 presidential election results at county level. The question posited in this article is whether or not changes in population have contributed to the polarization in US politics. For instance, if cities had inflows of people whose values are aligned with the Democratic Party, they might become bluer. At the same time, if people with affinity for the Republican Party remain in the countryside, those counties would turn redder.
+
 I found, however, that shifts in population have not driven the polarization of the nation at least in 2010–2017 period, while characteristics of elections (e.g. candidates, issues) were more accountable for the polarization trend.
+
 In this analysis, I used the Data Profiles tables of the US Census American Community Survey (Five-year data) from 2010 to 2017, selecting 292 variables which are consistently available at county level. Missing values were imputed by XGBoost Regressor. During that period of time, there were two presidential elections. I constructed regression models with independent variables from US Census ACS and a dependent variable of vote share margin between Republican and Democratic candidates in the presidential elections.
 
 XGBoost Regressor was also selected as the base model for the best score among other machine learning regression models. Samples were weighted by county total voting counts. Nominal errors increase by applying the weight, as shown in the figure on the left.
