@@ -45,7 +45,7 @@ XGBoost Regressor was also selected as the base model for the best score among o
 
 ![RMSE difference between weighted and unweighted models](images//RMSE_weighted_unweighted.png "RMSE comparison between weighted and unweighted models")
 
-Yet the weighting samples leads to narrower errors in terms of voting counts. The model improves accuracy in larger counties and cities at the cost of that in smaller counties. Thus in this analysis I will use a model with sample (county)weight according to the total vote count of counties.
+Yet the weighting samples leads to narrower errors in terms of voting counts. The model improves accuracy in larger counties and cities at the cost of that in smaller counties. Thus in this analysis I will use a model with sample (county) weight according to the total vote counts of counties.
 
 ![vote count error difference between weighted and unweighted models](images//actual_error_balanced_unbalanced.png "Vote count comparison between weighted and unweighted models")
 
@@ -57,67 +57,46 @@ Firstly, I fitted the 2016 Census data and election result of the same year to t
 
 The result is not compelling. In the following chart, you see predicted margins in a model with 2010 Census data on the x axis and difference between predictions by models with 2010 and 2016 data. If there were an upward slope, we could say red counties in 2010 had wider margins in favor of Republican candidate in 2016 and vice versa. We see, instead, a flat picture below; that means shifts in voting share margins stemming from the change in population had no apparent correlations with the initial conditions and population has not been the clear driver of polarization in general.
 
-Voting share margin between Republican and Democratic candidates. Source: US Census
+![change in margins in 2016 model (2010-2016)](images//model_margin_change_2010.png "Model Predicted Margin")
+
+*Voting share margin between Republican and Democratic candidates. Source: US Census*
+
 Having said that, it may be useful to know the shift in demography and social profile of counties and cities in swing states. Following charts describe voting shares of Democratic and Republican candidates predicted by 2016-model with population data in different years until 2017. In Florida where Mr. Trump won 29 electoral votes (EVs) with a narrow margin of 1.2%, the change in population structure between 2016 and 2017 favored the Republican party, while we see the opposite, benefiting Democrats in Pennsylvania whose 20 EVs were for Mr. Trump in 2016 with a 0.7% margin. The 2018 US Census ACS data will be released on December 19th, and it will be interesting to see the prediction with the latest data.
 
-Voting share of Democratic (blue) and Republican (red) candidates. Source: US Census
+![model prediction by state](images//2016_model_by_state_prediction.png "Model Prediction by State")
+
+*Voting share of Democratic (blue) and Republican (red) candidates. Source: US Census*
+
+### Methodology II
+
 Secondly, I compared two models constructed with 2012 and 2016 datasets and examined important features and errors of each model.
+
+![Methodology II](images//methodology_2.jpeg "Methodology II") 
 
 I found many features in common in 2012 and 2016 models as shown below. Commuting by public transportation or by their own cars matters because cities (where public transportation is available) tend to be bluer than rural counties. Units in structure (i.e. living in a stand alone house or multiple-unit apartment) and number of bedrooms are also associated with urban-rural distinctions. Those variables mattered more in 2016 than 2012; the division between cities and countryside deepened over the past four years. It is also noted that race (including “Hispanic and Latino and Race”) had a larger power in 2016 as Republicans strengthened in white counties, while Democrats increased its support in counties and cities which were more racially diverse. Detailed analysis of features that drove the 2016 election results is found in my previous article.
 
-Feature importances in 2012 and 2016 models. Source: US Census
+![feature importance in 2012 and 2016 models](images//feature_importance_2012_2016.png "Feature Importances in 2012 and 2016 models")
 
-Root Mean Square Error of 100 trials of both models. Source: US Census
+*Feature importances in 2012 and 2016 models. Source: US Census*
+
 Unsurprisingly, the model errors in 2016 were statistically significantly smaller than those in 2012, indicated in the chart on the left. Population and social profiles at county level tell more about the result of the presidential election in 2016 than the previous one. That fact is one of the evidences of the deepening social cleavage in the country.
+
+![RMSE in 2012 and 2016 models](images//RMSE_2012_2016.png "RMSE in 2012 and 2016 models")
+
+*Root Mean Square Error of 100 trials of both models. Source: US Census*
+
+### Methodology III
+
 Lastly, I compared predicted margins of 2012- and 2016-models with both 2016 population data. 2012-model with 2016 data would tell what would have happened if Mr. Obama and Mr. Romney had run the presidential race in 2016.
+
+![Methodology III](images//methodology_3.jpeg "Methodology III") 
 
 It was clear that 2016-model result (y-axis) was much more polarized than hypothetical 2012-election result with 2016 population (x-axis). With the population unchanged, 2016-election resulted in a Republican candidate stronger in red counties and a Democratic candidate having more supports in blue cities.
 
-Voting share margin between Republican and Democratic candidates. Source: US Census
+![Predictions of 2012 and 2016 models with 2016 data](images//2012_2016_model_predictions.png "Predictions of 2012 and 2016 models with 2016 data")
+
+*Voting share margin between Republican and Democratic candidates. Source: US Census*
+
+### Conclusion
+
 As discussed above, I found no evidence supporting the argument that change in population structure of counties contributed to the political polarization of the United States, while it may be useful to monitor shift in population and social profiles in swing states. The polarization was rather attributed to the changes in characteristics of presidential candidates, issues and elections themselves. The 2020 election is coming soon, and we have not yet seen any clues that the polarization is alleviated so far.
-
-Politics
-Data Science
-Python
-Presidential Election
-Xgboost
-
-
-Keita Miyaki
-WRITTEN BY
-
-Keita Miyaki
-Keita is an aspiring data scientist with expertise in finance and investment, a proud Japanese national, a chef, Judo black belt, a calligrapher, and a drunkard
-Write the first response
-More From Medium
-More from Keita Miyaki
-The Divided States of America
-Keita Miyaki
-Keita Miyaki in Keita Starts Data Science
-Aug 20 · 9 min read
-39
-
-Also tagged Presidential Election
-Drawing The Third Democratic Presidential Debate
-Liza Donnelly
-Liza Donnelly
-Sep 13 · 5 min read
-58
-
-Top on Medium
-Leak of Microsoft Salaries Shows Fight for Higher Compensation
-Dave Gershgorn
-Dave Gershgorn in OneZero
-Sep 13 · 6 min read
-6.5K
-
-Discover Medium
-Welcome to a place where words matter. On Medium, smart voices and original ideas take center stage - with no ads in sight. Watch
-Make Medium yours
-Follow all the topics you care about, and we’ll deliver the best stories for you to your homepage and inbox. Explore
-Become a member
-Get unlimited access to the best stories on Medium — and support writers while you’re at it. Just $5/month. Upgrade
-About
-Help
-Legal
-
